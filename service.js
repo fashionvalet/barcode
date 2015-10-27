@@ -1,8 +1,6 @@
 var restify = require('restify'),
     barcode = require('bwip-js'),
-    fs = require('fs'),
     baseUrl = '/barcode';
-
 
 var server = restify.createServer({
     name: "FashionValet"
@@ -17,18 +15,33 @@ server.get(baseUrl + '/', function (req, res, next) {
 });
 
 server.get(baseUrl + '/generate', function (req, res, next) {
+    var includetext = true;
+    var height = 15;
+    var scale = 3;
     var type = req.params.type;
     var text = req.params.text;
+
+    if (req.params.includetext !== undefined) {
+        includetext = (req.params.includetext === 'true') ? true : false;
+    }
+
+    if (req.params.height !== undefined) {
+        height = req.params.height;
+    }
+
+    if (req.params.scale !== undefined) {
+        scale = req.params.scale;
+    }
 
     barcode.toBuffer({
         bcid: type,
         text: text,
-        height: 15,
-        scale: 3,
-        includetext: true,
+        height: height,
+        scale: scale,
+        includetext: includetext,
         textfont: 'OCR-B',
         textalign: 'center',
-        textsize: 12
+        textsize: 10
     }, function (err, png) {
         if (err) {
             return next(new restify.InvalidArgumentError(err));

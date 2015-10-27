@@ -1,6 +1,7 @@
 {
   "name": "fvbarcode",
   "version": "0.0.1",
+  "license": "MIT",
   "author": "Ahmad Shah Hafizan Hamidin <ahmad@fashionvalet.com>",
   "homepage": "http://barcode.fashionvalet.com",
   "repository": "https://github.com/fashionvalet/barcode",
