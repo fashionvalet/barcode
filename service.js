@@ -1,6 +1,8 @@
 var restify = require('restify'),
     barcode = require('bwip-js'),
-    fs = require('fs');
+    fs = require('fs'),
+    baseUrl = '/barcode';
+
 
 var server = restify.createServer({
     name: "FashionValet"
@@ -8,13 +10,13 @@ var server = restify.createServer({
 
 server.use(restify.queryParser());
 
-server.get('/', function (req, res, next) {
-    res.redirect('/generate', next);
+server.get(baseUrl + '/', function (req, res, next) {
+    res.redirect(baseUrl + '/generate', next);
 
     return next();
 });
 
-server.get('/generate', function (req, res, next) {
+server.get(baseUrl + '/generate', function (req, res, next) {
     var type = req.params.type;
     var text = req.params.text;
 
