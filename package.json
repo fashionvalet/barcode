@@ -1,0 +1,13 @@
+{
+  "name": "fvbarcode",
+  "version": "0.0.1",
+  "author": "Ahmad Shah Hafizan Hamidin <ahmad@fashionvalet.com>",
+  "homepage": "http://barcode.fashionvalet.com",
+  "scripts": {
+      "start": "service.js"
+  },
+  "dependencies": {
+    "bwip-js": "^0.14.2",
+    "restify": "^4.0.3"
+  }
+}
