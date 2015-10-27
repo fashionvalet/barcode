@@ -7,8 +7,7 @@ MAINTAINER Ahmad Shah Hafizan Hamidin
 RUN apt-get update
 
 # Install Nodejs
-RUN apt-get install nodejs
-RUN apt-get install npm
+RUN apt-get install -y nodejs npm
 
 # Install nodemon
 RUN npm install -g nodemon
