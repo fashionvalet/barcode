@@ -9,12 +9,11 @@ RUN apt-get update
 # Install Nodejs
 RUN apt-get install -y nodejs npm
 
-# Install nodemon
-RUN npm install -g nodemon
-
 # Setup barcode mircroservice
 COPY . /src
-RUN cd /src; npm install
+WORKDIR /src
+RUN npm install
 
 EXPOSE 8080
-CMD ["nodemon", "/src/service.js"]
+
+CMD ["nodejs", "service.js"]
